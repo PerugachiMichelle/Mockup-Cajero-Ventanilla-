@@ -1,0 +1,184 @@
+/* ================================
+   CONTENEDOR GENERAL
+================================ */
+.consultar-container {
+  padding: 30px;
+  width: 100%;
+  background: #f4f7fb;
+  min-height: 100vh;
+}
+
+/* ================================
+   HEADER
+================================ */
+.consultar-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a2b4c;
+  margin-bottom: 5px;
+}
+
+.consultar-header p {
+  color: #6b7280;
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+/* ================================
+   CAJA PRINCIPAL
+================================ */
+.consultar-box {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eef0f3;
+}
+
+.consultar-subtitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a2b4c;
+  margin-bottom: 5px;
+}
+
+.consultar-desc {
+  color: #6b7280;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* ================================
+   FORMULARIO
+================================ */
+.consultar-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.campo label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #3a4750;
+  font-weight: 600;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #cfd8e3;
+  font-size: 15px;
+  background: #f9fafb;
+  outline: none;
+  transition: 0.2s;
+}
+
+.campo input:focus,
+.campo select:focus {
+  border-color: #2c6ecb;
+  background: #ffffff;
+  box-shadow: 0 0 6px rgba(44, 110, 203, 0.3);
+}
+
+/* ================================
+   BOTONES
+================================ */
+.consultar-buttons {
+  margin: 20px 0;
+  display: flex;
+  gap: 15px;
+}
+
+.btn-buscar {
+  background: linear-gradient(90deg, #004a98, #0072ce);
+  border: none;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-buscar:hover {
+  background: linear-gradient(90deg, #003a7a, #0062b8);
+}
+
+.btn-limpiar {
+  background: #ffffff;
+  color: #004a98;
+  border: 2px solid #004a98;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-limpiar:hover {
+  background: #f2f6fc;
+}
+
+/* ================================
+   SEPARADOR
+================================ */
+.consultar-divider {
+  margin: 25px 0;
+  border: none;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+/* ================================
+   RESULTADOS
+================================ */
+.consultar-resultados {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-top: 15px;
+}
+
+.consultar-resultados label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3a4750;
+  margin-bottom: 6px;
+}
+
+.consultar-resultados input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+  color: #374151;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 900px) {
+  .consultar-form,
+  .consultar-resultados {
+    grid-template-columns: 1fr;
+  }
+
+  .consultar-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-buscar,
+  .btn-limpiar {
+    width: 100%;
+  }
+}
