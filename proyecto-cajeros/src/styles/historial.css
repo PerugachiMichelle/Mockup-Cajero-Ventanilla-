@@ -1,6 +1,4 @@
-/* ===============================
-   CONTENEDOR GENERAL
-   =============================== */
+
 
 .historial-container {
   background: #ffffff;
@@ -12,9 +10,6 @@
   font-family: "Inter", sans-serif;
 }
 
-/* ===============================
-   TÍTULOS PRINCIPALES
-   =============================== */
 
 .historial-title {
   font-size: 18px;
@@ -29,9 +24,6 @@
   margin-bottom: 18px;
 }
 
-/* ===============================
-   FORMULARIO DE FILTROS
-   =============================== */
 
 .form-row {
   display: grid;
@@ -71,9 +63,7 @@
   box-shadow: 0 0 4px rgba(0, 76, 151, 0.3);
 }
 
-/* ===============================
-   BOTONES
-   =============================== */
+
 
 .btn-row {
   display: flex;
@@ -112,9 +102,6 @@
   background: #cbd5e1;
 }
 
-/* ===============================
-   TABLA
-   =============================== */
 
 .historial-table-container {
   width: 100%;
@@ -151,9 +138,6 @@
   background: #f9fafb;
 }
 
-/* ===============================
-   RESPONSIVE
-   =============================== */
 
 @media (max-width: 768px) {
   .btn-row {

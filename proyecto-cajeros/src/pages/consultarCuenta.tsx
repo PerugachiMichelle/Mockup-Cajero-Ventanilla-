@@ -5,7 +5,7 @@ function ConsultarCuenta() {
   const [numeroCuenta, setNumeroCuenta] = useState("");
   const [tipoCuenta, setTipoCuenta] = useState("Ahorros");
 
-  // Datos que regresarán del backend (mock por ahora)
+ 
   const [datos, setDatos] = useState({
     nombre: "-",
     identificacion: "-",
@@ -13,9 +13,7 @@ function ConsultarCuenta() {
     estado: "-",
   });
 
-  // ==========================================================
-  // FUNCIÓN LISTA PARA CONECTARSE CON EL BACKEND
-  // ==========================================================
+  
   const buscarCuenta = async () => {
     if (numeroCuenta.length !== 10) {
       alert("El número de cuenta debe tener exactamente 10 dígitos.");
@@ -23,43 +21,31 @@ function ConsultarCuenta() {
     }
 
     try {
-      // 🔵 Cuando tus compañeros hagan la API,
-      //    solo reemplazan esta URL:
       const response = await fetch(
-        `http://localhost:3000/api/cuentas/consultar?numero=${numeroCuenta}&tipo=${tipoCuenta}`
+        `/api/cuentas/consultar?numero=${numeroCuenta}&tipo=${tipoCuenta}`
       );
 
       if (!response.ok) {
-        throw new Error("Error al consultar la cuenta");
+        const text = await response.text();
+        throw new Error(text || "Error al consultar la cuenta");
       }
 
       const data = await response.json();
 
-      // 🔵 Actualizar datos en pantalla
       setDatos({
         nombre: data.nombreCliente || "-",
         identificacion: data.identificacion || "-",
         saldo: data.saldoDisponible || "-",
         estado: data.estadoCuenta || "-",
       });
-    } catch (error) {
-      console.log(error);
-
-      // 🟡 Mock temporal mientras backend no existe
-      alert("Backend no disponible, cargando datos de prueba…");
-
-      setDatos({
-        nombre: "Juan Pérez",
-        identificacion: "0912345678",
-        saldo: "$1,250.00",
-        estado: "Activa",
-      });
+    } catch (error: any) {
+      alert(`No se pudo consultar la cuenta: ${error.message || error}`);
+    
+      setDatos({ nombre: "-", identificacion: "-", saldo: "-", estado: "-" });
     }
   };
 
-  // ==========================================================
-  // LIMPIAR FORMULARIO
-  // ==========================================================
+
   const limpiar = () => {
     setNumeroCuenta("");
     setTipoCuenta("Ahorros");
@@ -88,25 +74,27 @@ function ConsultarCuenta() {
 
         <div className="consultar-form">
 
-          {/* Número de Cuenta */}
+       
           <div className="campo">
-            <label>Número de cuenta</label>
+            <label htmlFor="consulta-numero">Número de cuenta</label>
             <input
+              id="consulta-numero"
               type="text"
               maxLength={10}
               value={numeroCuenta}
               onChange={(e) => {
-                const soloNumeros = e.target.value.replace(/[^0-9]/g, "");
+                const soloNumeros = e.target.value.replaceAll(/\D/g, "");
                 setNumeroCuenta(soloNumeros);
               }}
               placeholder="Ej. 1234567890"
             />
           </div>
 
-          {/* Tipo de cuenta */}
+    
           <div className="campo">
-            <label>Tipo de cuenta</label>
+            <label htmlFor="consulta-tipo">Tipo de cuenta</label>
             <select
+              id="consulta-tipo"
               value={tipoCuenta}
               onChange={(e) => setTipoCuenta(e.target.value)}
             >
@@ -117,7 +105,7 @@ function ConsultarCuenta() {
           </div>
         </div>
 
-        {/* Botones */}
+    
         <div className="consultar-buttons">
           <button className="btn-buscar" onClick={buscarCuenta}>
             Buscar cuenta
@@ -130,31 +118,31 @@ function ConsultarCuenta() {
 
         <hr className="consultar-divider" />
 
-        {/* Datos del titular */}
+
         <h3 className="consultar-subtitle">Datos del titular</h3>
         <p className="consultar-desc">
-          Información traída desde la base de datos (mockup por ahora).
+         
         </p>
 
         <div className="consultar-resultados">
           <div>
-            <label>Nombre del cliente</label>
-            <input type="text" value={datos.nombre} disabled />
+            <label htmlFor="consulta-nombre">Nombre del cliente</label>
+            <input id="consulta-nombre" type="text" value={datos.nombre} disabled />
           </div>
 
           <div>
-            <label>Identificación</label>
-            <input type="text" value={datos.identificacion} disabled />
+            <label htmlFor="consulta-id">Identificación</label>
+            <input id="consulta-id" type="text" value={datos.identificacion} disabled />
           </div>
 
           <div>
-            <label>Saldo disponible</label>
-            <input type="text" value={datos.saldo} disabled />
+            <label htmlFor="consulta-saldo">Saldo disponible</label>
+            <input id="consulta-saldo" type="text" value={datos.saldo} disabled />
           </div>
 
           <div>
-            <label>Estado de la cuenta</label>
-            <input type="text" value={datos.estado} disabled />
+            <label htmlFor="consulta-estado">Estado de la cuenta</label>
+            <input id="consulta-estado" type="text" value={datos.estado} disabled />
           </div>
         </div>
       </div>

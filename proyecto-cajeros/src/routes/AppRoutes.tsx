@@ -14,10 +14,10 @@ function AppRoutes() {
     <BrowserRouter>
       <Routes>
 
-        {/* LOGIN */}
+    
         <Route path="/" element={<Login />} />
 
-        {/* PANEL PRINCIPAL CON SIDEBAR */}
+       
         <Route
           path="/panel"
           element={
@@ -27,7 +27,6 @@ function AppRoutes() {
           }
         />
 
-        {/* RUTAS INTERNAS DEL PANEL (TODAS CON SIDEBAR) */}
         <Route
           path="/panel/consultar"
           element={
