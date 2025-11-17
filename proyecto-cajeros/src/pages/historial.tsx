@@ -15,10 +15,9 @@ function Historial() {
   const [desde, setDesde] = useState("");
   const [hasta, setHasta] = useState("");
 
-  // 👇 Al inicio NO hay movimientos
   const [movimientos, setMovimientos] = useState<Movimiento[]>([]);
 
-  // Solo números, máximo 10 dígitos
+ 
   const handleCuentaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     if (/^\d{0,10}$/.test(value)) {
@@ -26,17 +25,14 @@ function Historial() {
     }
   };
 
-  // 👉 Función FRONT: solo valida y carga MOCK
+
   const buscarMovimientos = () => {
     if (cuenta.length !== 10) {
       alert("El número de cuenta debe tener exactamente 10 dígitos.");
       return;
     }
 
-    // Aquí tus amigos luego llamarán al backend
-    // fetch(`/api/historial?cuenta=${cuenta}&desde=${desde}&hasta=${hasta}`)
-
-    // 🟡 Por ahora: datos de ejemplo (mock)
+ 
     const mock: Movimiento[] = [
       {
         fecha: "2025-11-07",
@@ -51,17 +47,17 @@ function Historial() {
     setMovimientos(mock);
   };
 
-  // 👉 Limpiar filtro + limpiar tabla
+
   const limpiar = () => {
     setCuenta("");
     setDesde("");
     setHasta("");
-    setMovimientos([]); // ← importante
+    setMovimientos([]); 
   };
 
   return (
     <>
-      {/* HEADER SUPERIOR (ya se monta dentro de PanelLayout) */}
+ 
       <header className="panel-header">
         <div className="panel-header-title">Historial de transacciones</div>
         <div className="panel-header-info">
@@ -69,7 +65,7 @@ function Historial() {
         </div>
       </header>
 
-      {/* CONTENIDO PRINCIPAL */}
+
       <main className="panel-content">
         <div className="historial-container">
           <div className="historial-title">Filtros de búsqueda</div>
@@ -77,7 +73,7 @@ function Historial() {
             Defina cuenta y rango de fechas para obtener el historial.
           </div>
 
-          {/* FORMULARIO */}
+
           <div className="form-row">
             <div className="form-group">
               <label>Número de cuenta</label>
@@ -112,7 +108,7 @@ function Historial() {
             </div>
           </div>
 
-          {/* BOTONES */}
+         
           <div className="btn-row">
             <button className="btn-primary" onClick={buscarMovimientos}>
               Buscar
@@ -122,7 +118,7 @@ function Historial() {
             </button>
           </div>
 
-          {/* TABLA RESULTADOS */}
+       
           <div className="historial-table-container">
             <table className="historial-table">
               <thead>

@@ -1,4 +1,3 @@
-// ...existing code...
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/login.css";
@@ -6,7 +5,7 @@ import logo from "../assets/logo-ecusol.jpg";
 
 function Login() {
   const navigate = useNavigate();
-  const [sucursal, setSucursal] = useState("Quito Norte"); // valor por defecto
+  const [sucursal, setSucursal] = useState("Quito Norte"); 
   const [codigo, setCodigo] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {

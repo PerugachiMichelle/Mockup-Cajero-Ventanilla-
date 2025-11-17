@@ -35,7 +35,7 @@
   margin-bottom: 22px;
 }
 
-/* Formulario en dos columnas (cuenta / monto) */
+
 .retiro-form {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -63,7 +63,7 @@
   color: #1e293b;
 }
 
-/* Botones debajo, ocupando todo el ancho */
+
 .retiro-buttons {
   grid-column: span 2;
   margin-top: 10px;

@@ -1,6 +1,4 @@
-/* ================================
-   CONTENEDOR GENERAL
-================================ */
+
 .consultar-container {
   padding: 30px;
   width: 100%;
@@ -8,9 +6,6 @@
   min-height: 100vh;
 }
 
-/* ================================
-   HEADER
-================================ */
 .consultar-header h2 {
   font-size: 28px;
   font-weight: 700;
@@ -24,9 +19,7 @@
   font-size: 15px;
 }
 
-/* ================================
-   CAJA PRINCIPAL
-================================ */
+
 .consultar-box {
   background: #ffffff;
   padding: 30px;
@@ -48,9 +41,7 @@
   font-size: 14px;
 }
 
-/* ================================
-   FORMULARIO
-================================ */
+
 .consultar-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -85,9 +76,6 @@
   box-shadow: 0 0 6px rgba(44, 110, 203, 0.3);
 }
 
-/* ================================
-   BOTONES
-================================ */
 .consultar-buttons {
   margin: 20px 0;
   display: flex;
@@ -126,9 +114,7 @@
   background: #f2f6fc;
 }
 
-/* ================================
-   SEPARADOR
-================================ */
+
 .consultar-divider {
   margin: 25px 0;
   border: none;
@@ -136,9 +122,7 @@
   background: #e5e7eb;
 }
 
-/* ================================
-   RESULTADOS
-================================ */
+
 .consultar-resultados {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -163,9 +147,7 @@
   color: #374151;
 }
 
-/* ================================
-   RESPONSIVE
-================================ */
+
 @media (max-width: 900px) {
   .consultar-form,
   .consultar-resultados {
